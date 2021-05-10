@@ -1,0 +1,13 @@
+.blue{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    border: 3px solid black;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>play around</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        .blue {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border: 3px solid black;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        {%for i in range(id): %}
+        <div class="blue" style="background-color: {{color}}"></div>
+        {%endfor%}
+
+
+
+    </div>
+
+</body>
+
+</html>
