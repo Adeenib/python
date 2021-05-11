@@ -10,19 +10,24 @@
 </head>
 
 <body>
-    <div class="main" style="width: {{y*100}}px;">
+    <div class="main" style="width: {{size}}px;">
         {% for i in range(x):%}
         {%if i%2==0%}
         {% for i in range(y)%}
         <div class="red" style="background-color: {{color}};"></div>
+        {%if i !=y-1 or fm%2==0%}
         <div class="black" style="background-color: {{color1}};"></div>
+        {%endif%}
         {%endfor%}
         {%endif%}
-        {%if i%2==1%}
+        {%if i%2==1 %}
         {% for i in range(y)%}
         <div class="black" style="background-color: {{color1}};"></div>
+        {%if i !=y-1 or fm%2==0%}
+
         <div class="red" style="background-color: {{color}};"></div>
 
+        {%endif%}
         {%endfor%}
         {%endif%}
         {%endfor%}
