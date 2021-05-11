@@ -6,27 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>play around</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <style>
-        .blue {
-            width: 100px;
-            height: 100px;
-            background-color: aqua;
-            border: 3px solid black;
-        }
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
-        .main {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-content: space-between;
-        }
-    </style>
 </head>
 
 <body>
     <div class="main">
+        <h1>Welcome dear and expensive</h1>
         {%for i in range(id): %}
         <div class="blue" style="background-color: {{color}}"></div>
         {%endfor%}

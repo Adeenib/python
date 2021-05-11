@@ -1,0 +1,18 @@
+.blue{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    border: 3px solid black;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}
+.main h1 {
+    text-align: center;
+    flex-basis: 1500px;
+   
+}
