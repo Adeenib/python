@@ -12,6 +12,11 @@ z = [{'x': 10, 'y': 20}]
 x[1][0] = 15
 print(x)
 # Change the last_name of the first student from 'Jordan' to 'Bryant'
-
+students[0]['last_name'] = "Bryant"
+print(students)
 # In the sports_directory, change 'Messi' to 'Andres'
+sports_directory['soccer'][0] = 'Andres'
+print(sports_directory)
 # Change the value 20 in z to 30
+z[0]['y'] = 30
+print(z)
