@@ -1,0 +1,28 @@
+body{
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+
+}
+#info1{
+    min-width: 26rem;
+ 
+    min-height: 23rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: 25rem;
+    text-align: center;
+    border-bottom: 2px solid black;
+}

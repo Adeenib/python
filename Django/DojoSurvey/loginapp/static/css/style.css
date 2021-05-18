@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    align-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-evenly;
+    padding: 20px;
+    width: 400px;
+}
+#text{
+    height: 100px;
+    width: 350px;
+}
+#submit{
+    border: 4px solid green;
+}
