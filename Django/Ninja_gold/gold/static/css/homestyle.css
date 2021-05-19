@@ -1,0 +1,35 @@
+.sec{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.cardcss{
+    width: 16rem;
+    height: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+nav{
+    margin: 15px 0px 10px 10px;
+}
+textarea{
+    width: 75rem;
+   
+    
+}
+.P_A{
+    overflow-y: scroll;
+    height: 15rem;
+    width: 75.5rem;
+    padding-left: 2rem;
+    border: 2px solid black;
+   
+}
+footer{
+    width: 79rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+}

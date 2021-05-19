@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <label class='label_of_value' for="value">Your gold:<input type="text" style="max-width: 60px;" name='value'
+                id="textInput" value="{{request.session.gold}}"></label>
+    </nav>
+    <div class="sec">
+        <div class="card text-white bg-dark mb-3 cardcss" style="max-width: 18rem;">
+            <h2>Farm</h2>
+            <p>(earns 10-20 golds)</p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="farm">
+                <button type="submit" class="btn btn-secondary">Find Gold!</button>
+            </form>
+        </div>
+        <div class="card text-white bg-dark mb-3 cardcss" style="max-width: 18rem;">
+            <h2>Cave</h2>
+            <p>(earns 5-10 golds)</p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="Cave">
+                <button type="submit" class="btn btn-secondary">Find Gold!</button>
+            </form>
+        </div>
+        <div class="card text-white bg-dark mb-3 cardcss" style="max-width: 18rem;">
+            <h2>House</h2>
+            <p>(earns 2-5 golds)</p>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="House">
+                <button type="submit" class="btn btn-secondary">Find Gold!</button>
+            </form>
+        </div>
+        <div class="card text-white bg-dark mb-3 cardcss" style="max-width: 18rem;">
+            <h2>Casino</h2>
+            <p>(earns/takes 0-50 golds)</p>
+
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="Casino">
+                <button type="submit" class="btn btn-secondary">Find Gold!</button>
+            </form>
+        </div>
+
+    </div>
+    <footer>
+
+        <label for="activities"> Activities</label>
+        <div class="P_A">
+            {%for value in request.session.activities %}
+            <p>{{value}}</p>
+            {%endfor%}
+        </div>
+    </footer>
+</body>
+
+</html>
