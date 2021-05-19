@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/styleForhome.css'%}">
+    <title>Document</title>
+</head>
+<div class="container">
+    <h1>welcome to the Great Number Game!</h1>
+    <h2>I am thinking of a number between 1 and 100</h2>
+    <h2>Take a guess</h2>
+    <p>{{request.session.number}}</p>
+    {%if 'test' in request.session %}
+    <div class="result" style="background-color:red;">
+        <p style="font-size: 86px;">{{request.session.test}}</p>
+    </div>
+    {%endif%}
+    <br>
+    <form action="/test" , method="post">
+        {% csrf_token %}
+        <input type="text" name="value">
+        <button type="submit">try</button>
+    </form>
+</div>
+
+<body>
+
+</body>
+
+</html>
