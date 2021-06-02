@@ -1,0 +1,36 @@
+nav{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+section
+{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    
+    width: 9rem;
+    height: 2rem;
+
+}
+#title{
+    width: 11rem;
+    height: 1rem;
+}
+table{
+    line-height:79px;
+}
+.mai{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

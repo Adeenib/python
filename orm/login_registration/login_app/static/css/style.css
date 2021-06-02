@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding:0px;
+
+}
+.container{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px auto;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+table{
+    line-height:30px;
+}
+h2{
+    margin:0px 0px 25px 0px;
+}
+button{
+    margin:10px 0px 0px 0px;
+    height:25px;
+    width: 50%;
+    box-shadow: 5px 5px 5px gray;
+}

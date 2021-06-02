@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall</title>
+</head>
+
+<body>
+    <nav>
+        <h1>CodingDojo Wall</h1>
+        <h3>welcome </h3>
+        <a href="/logout/">log off</a>
+    </nav>
+    <section>
+        <form action="/addpost/" method='POST'>
+            {% csrf_token %}
+            <label for="pst">Post a massege</label>
+            <textarea name="post" id="pst" cols="30" rows="10"></textarea>
+
+            <button type="submit">Post a message</button>
+        </form>
+        {%for post in posts%}
+        <h4>{{post.user.first_name}} {{post.user.last_name}} {{post.user.created_at}}</h4>
+        <p>{{post.message}}</p>
+        {%for com in post.postcomment.all%}
+        <p>{{com.comment}}</p>
+        <a href="/delete/{{com.id}}/"> delete</a>
+        {%endfor%}
+        <form action="/addcom/" method='POST'>
+            {% csrf_token %}
+            <input type="hidden" name="posid" value='{{post.id}}'>
+            <label for="com">Post a comment</label>
+            <textarea name="com" id="com" cols="30" rows="10"></textarea>
+
+            <button type="submit">Post a comment</button>
+        </form>
+
+        {%endfor%}
+    </section>
+</body>
+
+</html>

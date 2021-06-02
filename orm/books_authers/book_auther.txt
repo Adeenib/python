@@ -1,0 +1,133 @@
+>>> from books_authers_app.models import *
+
+1__Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby
+
+
+>>> Book.objects.create(title='Java',desc='adakjf')
+<Book: Book object (1)>
+>>> Book.objects.create(title='C sharp',desc='adakjf')
+<Book: Book object (2)>
+>>> Book.objects.create(title='Python',desc='adakjf')
+<Book: Book object (3)>
+>>> Book.objects.create(title='PHP',desc='adakjf')
+<Book: Book object (4)>
+>>> Book.objects.create(title='Robe',desc='adakjf')
+<Book: Book object (5)>
+
+
+2_Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+
+>>> Auther.objects.create(first_name='Jane',last_name='Austen')
+<Auther: Auther object (1)>
+>>> Auther.objects.create(first_name='Emily',last_name='Dickinson')
+<Auther: Auther object (2)>
+>>> Auther.objects.create(first_name='Fyodor',last_name='Dostoevesky')
+<Auther: Auther object (3)>
+>>> Auther.objects.create(first_name='William',last_name='Shakespeare')
+<Auther: Auther object (4)>
+>>> Auther.objects.create(first_name='Lau',last_name='Tzu')
+<Auther: Auther object (5)>
+>>>
+
+3_Add a new text field in the authors table called 'notes'.
+4_Create and run the migration files to update the table in your database.
+
+(djangoPy3Env) C:\Users\hp\Documents\python\orm\books_authers>python manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to auther without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> 1
+Migrations for 'books_authers_app':
+  books_authers_app\migrations\0002_auther_notes.py
+    - Add field notes to auther
+
+(djangoPy3Env) C:\Users\hp\Documents\python\orm\books_authers>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, books_authers_app, contenttypes, sessions
+Running migrations:
+  Applying books_authers_app.0002_auther_notes... OK
+
+
+5_Query: Change the name of the C Sharp book to C#
+
+>>> c= Book.objects.get(id=2)
+>>> c.title='c#'
+>>> c.save()
+>>>
+6_Query: Change the first name of the 4th author to Bill
+
+>>> c= Auther.objects.get(id=4)
+>>> c.first_name='Bill'
+>>> c.save()
+>>>
+
+7_Query: Assign the first author to the first 2 books
+>>> alaa=Auther.objects.get(id=2)
+>>> bo1=Book.objects.get(id=1)
+>>> alaa.book.add(bo1)
+>>> bo2=Book.objects.get(id=2)
+>>> alaa.book.add(bo2)
+>>>
+
+
+8_Query: Assign the second author to the first 3 books
+
+>>> auther1=Auther.objects.get(id=1)
+>>> auther1.book.add(bo1)
+>>> auther1.book.add(bo2)
+>>> bo3=Book.objects.get(id=3)
+>>> auther1.book.add(bo3)
+>>>
+
+9_ Query: Assign the third author to the first 4 books
+>>> auther2=Auther.objects.get(id=3)
+>>> auther2.book.add(bo1)
+>>> auther2.book.add(bo2)
+>>> auther2.book.add(bo3)
+>>> bo3=Book.objects.get(id=4)
+>>> auther2.book.add(bo3)
+
+10_Assign the fourth author to the first 5 books (or in other words, all the books)
+>>> bo1=Book.objects.get(id=1)
+>>> bo2=Book.objects.get(id=2)
+>>> bo3=Book.objects.get(id=3)
+>>> bo4=Book.objects.get(id=4)
+>>> bo5=Book.objects.get(id=5)
+>>> auther=Auther.objects.get(id=4)
+>>> auther.book.add(bo1)
+>>> auther.book.add(bo2)
+>>> auther.book.add(bo3)
+>>> auther.book.add(bo4)
+>>> auther.book.add(bo5)
+>>>
+
+11_Query: Retrieve all the authors for the 3rd book
+
+>>> tisbook=Book.objects.get(id=3)
+>>> tisbook.auther.all()
+<QuerySet [<Auther: Auther object (1)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>>
+
+12_ Query: Remove the first author of the 3rd book
+
+>>> thisAuther=Auther.objects.get(id=3)
+>>> thisAuther=Auther.objects.get(id=1)
+>>> bo3.auther.remove(thisAuther)
+>>> Auther.objects.all()
+
+13_ Query: Add the 5th author as one of the authors of the 2nd book
+>>> ao=Auther.objects.get(id=5)
+>>> ao.book.add(bo2)
+
+14_Query: Find all the books that the 3rd author is part of
+>>> ao=Auther.objects.get(id=3)
+>>> ao.book.all().values()
+
+15_Query: Find all the authors that contributed to the 5th book
+
+>>> bo5.auther.all().values()

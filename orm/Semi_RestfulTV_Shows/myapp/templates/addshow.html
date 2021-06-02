@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New</title>
+</head>
+
+<body>
+    <h1>Add a New Show</h1>
+    <form action="/add" method="POST">
+        {% csrf_token %}
+        Title <input type="text" name='title'><br>
+        Network <input type="text" name="network"><br>
+        Release Data <input type="date" name='R_data'><br>
+        <button type="submit">Create</button>
+    </form>
+</body>
+
+</html>

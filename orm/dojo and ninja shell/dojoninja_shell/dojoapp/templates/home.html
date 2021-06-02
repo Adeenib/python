@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="dojo">
+        <h1>Add a Dojo</h1>
+        <form action="/result" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="forms" value="dojo">
+            <p>Name: <input type="text" name="name"></p>
+            <p>City: <input type="text" name="city"></p>
+            <p>State: <input type="text" name="state"></p>
+            <button>Add!</button>
+        </form>
+
+    </div>
+    <div class="ninja">
+        <h1>Add a Ninja</h1>
+        <form action="/result" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="forms" value="ninja">
+            <p>First Name: <input type="text" name="first_name"></p>
+            <p>Lat Name: <input type="text" name="last_name"></p>
+            <p>Dojo <select name="select">
+                    {% for i in all_dojo %}
+                    <option value="{{i.id }}"> at{{i.name }} {{i.city}} {{i.state}}</option>
+                    {% endfor %}
+                </select>
+
+            </p>
+
+            <button>Add!</button>
+        </form>
+
+        {% for i in all_dojo %}
+        <p>{{i.name }} {{i.city}} {{i.state}}</p>
+        {% for z in all_ninja %}
+        {% if z.Dojo_id.id == i.id %}
+        <p>
+            {{z.first_name}} {{z.last_name}}
+        </p>
+        {%endif%}
+        {% endfor %}
+        {% endfor %}
+
+    </div>
+</body>
+
+</html>
